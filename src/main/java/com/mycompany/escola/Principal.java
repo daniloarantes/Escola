@@ -9,7 +9,7 @@ package com.mycompany.escola;
  * @author danilo.asilv10
  */
 public class Principal extends javax.swing.JFrame {
-
+    // teste
     /**
      * Creates new form Principal
      */
