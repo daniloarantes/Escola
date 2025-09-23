@@ -124,7 +124,7 @@ public class Principal extends javax.swing.JFrame {
         Resultado r = new Resultado(a);
         r.setVisible(true);
         r.setLocationRelativeTo(this);
-        
+
     }//GEN-LAST:event_jBCadastrarActionPerformed
 
     /**

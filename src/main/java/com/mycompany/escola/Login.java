@@ -4,6 +4,8 @@
  */
 package com.mycompany.escola;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author danilo.asilv10
@@ -15,6 +17,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -125,8 +128,20 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEntrarActionPerformed
-        System.out.println("Login: " + jTLogin.getText());
-        System.out.println("Senha: " + String.valueOf(jPSenha.getPassword()));
+        
+        if ("admin".equals(jTLogin.getText())) {
+            if ("123456".equals(String.valueOf(jPSenha.getPassword()))) {
+                Principal p = new Principal();
+                p.setVisible(true);
+                this.dispose();
+
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Senha inválida");
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Usuário inválido");
+        }
     }//GEN-LAST:event_jBEntrarActionPerformed
 
     /**
