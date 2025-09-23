@@ -6,12 +6,17 @@ package com.mycompany.escola;
 
 import Objetos.Aluno;
 import javax.swing.JOptionPane;
+import javax.swing.text.DefaultFormatterFactory;
+import javax.swing.text.MaskFormatter;
 
 /**
  *
  * @author danilo.asilv10
  */
 public class Principal extends javax.swing.JFrame {
+
+    private MaskFormatter telefoneMask;
+    private MaskFormatter nascimentoMask;
 
     // teste
     /**
@@ -20,6 +25,16 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         this.setLocationRelativeTo(null);
+
+        try {
+            telefoneMask = new MaskFormatter("(##) #####-####");
+            nascimentoMask = new MaskFormatter("##/##/####");
+        } catch (Exception e) {
+            System.out.println("Erro ao formatar");
+        }
+
+        jTTelefone.setFormatterFactory(new DefaultFormatterFactory(telefoneMask));
+        jTNascimento.setFormatterFactory(new DefaultFormatterFactory(nascimentoMask));
     }
 
     /**
@@ -38,9 +53,9 @@ public class Principal extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jTNome = new javax.swing.JTextField();
         jTEmail = new javax.swing.JTextField();
-        jTTelefone = new javax.swing.JTextField();
-        jTNascimento = new javax.swing.JTextField();
         jBCadastrar = new javax.swing.JButton();
+        jTTelefone = new javax.swing.JFormattedTextField();
+        jTNascimento = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,10 +97,10 @@ public class Principal extends javax.swing.JFrame {
                                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTNome)
+                                    .addComponent(jTNome, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
                                     .addComponent(jTEmail)
-                                    .addComponent(jTTelefone)
-                                    .addComponent(jTNascimento, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE))))))
+                                    .addComponent(jTTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -170,9 +185,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField jTEmail;
-    private javax.swing.JTextField jTNascimento;
+    private javax.swing.JFormattedTextField jTNascimento;
     private javax.swing.JTextField jTNome;
-    private javax.swing.JTextField jTTelefone;
+    private javax.swing.JFormattedTextField jTTelefone;
     // End of variables declaration//GEN-END:variables
 }
 
